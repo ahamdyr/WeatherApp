@@ -22,8 +22,8 @@ const CityListItem: React.FC<CityListItemProps> = ({ city }) => {
     navigation.navigate('WeatherDetail', { cityName, countryCode });
   };
 
-  const handleInfoPress = (e: any) => {
-    e.stopPropagation();
+  const handleInfoPress = (e?: any) => {
+    e?.stopPropagation();
     navigation.navigate('Historical', { cityName });
   };
 
@@ -40,6 +40,7 @@ const CityListItem: React.FC<CityListItemProps> = ({ city }) => {
       <TouchableOpacity
         onPress={handleInfoPress}
         hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+        testID="info-button"
       >
         <InfoIcon size={24} color="#2388C7" />
       </TouchableOpacity>

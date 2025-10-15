@@ -60,7 +60,7 @@ describe('CityListItem', () => {
   });
 
   it('should navigate to Historical on info icon press', () => {
-    const { getByTestId, UNSAFE_getByType } = render(
+    const { getByTestId } = render(
       <Provider store={store}>
         <NavigationContainer>
           <CityListItem city={mockCity} />
@@ -68,16 +68,10 @@ describe('CityListItem', () => {
       </Provider>,
     );
 
-    // Find the info button by searching for TouchableOpacity elements
-    const touchables = UNSAFE_getByType(
-      require('react-native').TouchableOpacity,
-    );
-    // The second TouchableOpacity should be the info button
-    if (touchables.length > 1) {
-      fireEvent.press(touchables[1]);
-      expect(mockNavigate).toHaveBeenCalledWith('Historical', {
-        cityName: 'London',
-      });
-    }
+    const infoButton = getByTestId('info-button');
+    fireEvent.press(infoButton);
+    expect(mockNavigate).toHaveBeenCalledWith('Historical', {
+      cityName: 'London',
+    });
   });
 });
