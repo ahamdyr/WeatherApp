@@ -33,6 +33,15 @@ A React Native mobile application that enables users to maintain a list of citie
 - Android Studio (for Android development)
 - CocoaPods (for iOS dependencies)
 
+## Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/ahamdyr/WeatherApp.git
+cd WeatherApp
+```
+
 ## Installation
 
 1. Install dependencies:
